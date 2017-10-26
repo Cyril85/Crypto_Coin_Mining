@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="milanroxe.inc.snocoins.Main2Activity"
+    tools:showIn="@layout/app_bar_main2">
+
+    <TextView
+        android:id="@+id/snoCoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeL"
+        android:layout_centerHorizontal="true"
+        android:text="@string/avail_sno_coin"
+        android:textSize="17sp" />
+
+    <RelativeLayout
+        android:id="@id/relativeL"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true">
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/style_circular_fill"
+            android:secondaryProgress="100" />
+
+        <TextView
+            android:id="@+id/countDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Claim Now!"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        android:text="Claim (10 SNO MINI BLOCKS)"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        android:text="Withdraw"
+        android:textColor="@android:color/white" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/relativeL"
+        android:layout_toRightOf="@+id/relativeL"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_cat" />
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ffffff"
+        design:menu="@menu/main">
+
+    </android.support.design.widget.BottomNavigationView>
+
+</RelativeLayout>

@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">Sno Coins</string>
+    <string name="title_activity_main2">SNO COINS</string>
+    <string name="admob_interstitial_id">ca-app-pub-5104321093142850/4055778529</string>
+    <string name="wait">wait...</string>
+    <string name="title_activity_auth">AuthActivity</string>
+    <string name="card_number">Card Number</string>
+    <string name="mm_yy">MM/yy</string>
+    <string name="card_holders_name">Name</string>
+    <string name="cvv">CVV</string>
+    <string name="proceed">Proceed with Card</string>
+    <string name="example_name">Vedhavyas</string>
+    <string name="example_email">vedhavyas@instamojo.com</string>
+    <string name="example_phone">9663556657</string>
+    <string name="example_amount">10.00</string>
+    <string name="test_description">Test description</string>
+    <string name="pay">Pay</string>
+    <string name="update_token">Update token</string>
+    <string name="name_auth_ui">Auth UI demo</string>
+    <string name="name_image">Storage Image Demo</string>
+
+    <string name="desc_chat">Demonstrates using a FirebaseRecyclerAdapter to load data from Firebase Database into a RecyclerView for a basic chat app.</string>
+    <string name="desc_auth_ui">Demonstrates the Firebase Auth UI flow, with customization options.</string>
+    <string name="desc_image">Demonstrates displaying an image from Cloud Storage using Glide.</string>
+
+    <!-- strings for Auth UI demo activities -->
+    <eat-comment />
+    <string name="launch_title">FirebaseUI Auth Demo</string>
+    <string name="sign_in">Start</string>
+    <string name="green_theme">Green Theme</string>
+    <string name="purple_theme">Purple Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="use_theme_header">Use theme:</string>
+    <string name="logo_header">Logo:</string>
+    <string name="firebase_logo_label">Firebase Auth</string>
+    <string name="google_logo_label">Google</string>
+    <string name="no_logo_label">None</string>
+    <string name="auth_providers_header">Use auth providers:</string>
+    <string name="email_label">Email</string>
+    <string name="facebook_label">Facebook</string>
+    <string name="facebook_label_missing_config">Facebook - configuration missing</string>
+    <string name="twitter_label">Twitter</string>
+    <string name="twitter_label_missing_config">Twitter - configuration missing</string>
+    <string name="google_label">Google</string>
+    <string name="google_label_missing_config">Google - configuration missing</string>
+    <string name="google_tos_label">Google TOS</string>
+    <string name="firebase_tos_label">Firebase TOS</string>
+    <string name="tos_header">Terms of Service URL:</string>
+    <string name="unknown_response">Unexpected onActivityResult response code</string>
+    <string name="unknown_sign_in_response">Unknown response from AuthUI sign-in</string>
+    <string name="sign_in_cancelled">Sign in cancelled</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="signed_in_header">You are signed in!</string>
+    <string name="sign_out">Sign out</string>
+    <string name="delete_account_label">Delete account</string>
+    <string name="sign_out_failed">Sign out failed</string>
+    <string name="delete_account_failed">Delete account failed</string>
+    <string name="user_profile_header">User profile:</string>
+    <string name="profile_picture_content_desc">Profile picture</string>
+    <string name="default_theme">Default theme</string>
+    <string name="configuration_required">Configuration is required - see README.md</string>
+    <string name="other_options_header">Other Options:</string>
+    <string name="enable_smartlock">Enable SmartLock for Passwords</string>
+    <string name="rational_image_perm">This sample will read an image from local storage to upload to Cloud Storage.</string>
+    <string name="anonymous_auth_failed_msg">Anonymous authentication failed, various components of the demo will not work. Make sure your device is online and that Anonymous Auth is configured in your Firebase project(https://console.firebase.google.com/project/_/authentication/providers)</string>
+    <string name="extra_google_scopes">Example extra Google scopes</string>
+    <string name="games">Games</string>
+    <string name="extra_facebook_scopes">Example extra Facebook scopes</string>
+    <string name="friends">Friends</string>
+    <string name="photos">Photos</string>
+    <string name="idp_token">IDP Token</string>
+    <string name="idp_secret">IDP Secret</string>
+    <string name="unknown_error">An unknown error occurred</string>
+    <string name="send">Send</string>
+    <string name="download">Download</string>
+    <string name="upload">Upload</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="accessibility_downloaded_image">Downloaded image</string>
+    <string name="drive_file">Drive File</string>
+    <string name="allow_new_email_acccount">Allow account creation if email does not exist.</string>
+
+    <!-- strings for database demo activities -->
+    <string name="start_chatting">No messages. Start chatting at the bottom!</string>
+    <string name="signed_in">Signed In</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="click_string">click</string>
+    <string name="buy_string">buy</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="email">Email</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_link_to_register">Don\'t have an account? Sing up</string>
+    <string name="btn_link_to_login">already registered. login me!</string>
+    <string name="btn_forgot_password">Forgot your password?</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="lbl_forgot_password">Forgot password?</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="sno_coin">SNO COINS (INR 200.00)</string>
+    <string name="buy">BUY</string>
+    <string name="sno_gold_coins">SNO GOLD COINS (INR 2,000.00)</string>
+    <string name="sno_silver_coins">SNO SILVER COINS (INR 1,000.00)</string>
+    <string name="licence_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhwGhWVCpgv7/uaHC5QT5h8oXXfsfu4cEnIClXV0Lu63SN/tn2fZpj0sLDmdx0vk/2iu31kVkpDaXdEMG0WxRnMNsH5ZzAehK+VIc1oOThTlNTxZY8acblsq5ioc9FkZKcQJsFEjMsX7MT1pD6TVpBKg8124b7ADbugNPxq/JXap1mMRpJxUtHj/359jsuKNr7K+BhY0ieUA4/FNz1ycND4/qp3Yh7J+Tje6ZYTF1mHhsSGszY3z1Ke0mNVWtGyfOl9ItU/IFq3jU93itStlcp1SjomDCTnL/IeFI9u6DzCALUnPVnV6Rtj79UwAzLVTogyjxDTo7+V8W8dMYzC6beQIDAQAB
+    </string>
+    <string name="with_email">With Email</string>
+    <string name="or">OR</string>
+    <string name="avail_sno_coin">SNO COIN:</string>
+    <string name="enter_amount_to_sell">Enter Amount to Sell</string>
+    <string name="sell">SELL</string>
+</resources>

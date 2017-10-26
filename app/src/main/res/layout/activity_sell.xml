@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ed7834"
+    android:padding="16dp"
+    tools:context="milanroxe.inc.snocoins.SellActivity">
+
+    <TextView
+        android:id="@+id/firebaseRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="..."
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="13dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        app:cardMaxElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/snoBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/avail_sno_coin"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:hint="@string/enter_amount_to_sell"
+                android:inputType="numberDecimal"
+                android:maxLength="10" />
+
+            <Button
+                android:id="@+id/toExchange"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="15dp"
+                android:onClick="toSell"
+                android:background="@drawable/roundedbutton"
+                android:text="@string/sell"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
