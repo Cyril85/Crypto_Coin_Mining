@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ed7834"
-    android:padding="16dp"
-    tools:context="milanroxe.inc.snocoins.SellActivity">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <TextView
-        android:id="@+id/firebaseRate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/card"
+    <RelativeLayout tools:context="milanroxe.inc.snocoins.SellActivity"
+    android:padding="16dp" android:background="#ed7834"  tools:shrinkMode="strict" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+
+
+
+    <android.support.v7.widget.CardView android:padding="13dp" android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/card" app:cardMaxElevation="10dp" app:cardElevation="7dp" app:cardCornerRadius="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:text="..."
-        android:textSize="18sp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="13dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="7dp"
-        app:cardMaxElevation="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:orientation="vertical">
+        <LinearLayout android:layout_height="match_parent" android:layout_width="match_parent" android:gravity="center" android:orientation="vertical" android:layout_margin="15dp">
 
             <TextView
-                android:id="@+id/snoBalance"
-                android:layout_width="wrap_content"
+                android:id="@+id/firebaseRate"
+                android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="@string/avail_sno_coin"
-                android:textSize="17sp" />
+                android:layout_above="@+id/card"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/BTC"
+                android:textColor="#3193c7"
+                android:textSize="25dp" />
+
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="17sp" android:text="@string/avail_sno_coin" android:id="@+id/snoBalance" android:layout_marginTop="30dp"/>
+
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/amount"
+        android:layout_marginTop="25dp"
+        android:maxLength="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/enter_amount_to_sell"
+        android:ems="10"/>
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="35dp" />
 
             <EditText
-                android:id="@+id/amount"
+                android:id="@+id/mycoin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:ems="10"
-                android:hint="@string/enter_amount_to_sell"
-                android:inputType="numberDecimal"
-                android:maxLength="10" />
+                android:text="@string/mycoin"
+                android:hint="ReEnter Amount to sell"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/toExchange"
@@ -60,11 +60,24 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="25dp"
                 android:layout_marginTop="15dp"
-                android:onClick="toSell"
                 android:background="@drawable/roundedbutton"
+                android:onClick="toSell"
                 android:text="@string/sell"
+
                 android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:textColor="#c92020"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note:-minimum selling units is 5000 sno coins if you have any problem you can email us.milan804.2016@gmail.com" />
+
+
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+</android.support.v7.widget.CardView>
+
+
 
 </RelativeLayout>

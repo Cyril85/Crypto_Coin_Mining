@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="milanroxe.inc.snocoins.BANKANDPANActivity"
+    tools:shrinkMode="strict">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color1fb184"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bank Detail"
+            android:textColor="@color/white" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp"
+                android:src="@mipmap/ic_pancard" />
+
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/imageView8"
+                android:layout_alignStart="@+id/imageView8"
+                android:layout_below="@+id/editText5"
+                android:layout_marginTop="45dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView8"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/editText"
+                android:layout_marginLeft="10dp"
+                android:ems="10"
+                android:hint="Pan Number"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText3"
+                android:layout_alignStart="@+id/editText3"
+                android:layout_below="@+id/editText3"
+                android:ems="10"
+                android:hint="Date Of Birth"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText4"
+                android:layout_alignStart="@+id/editText4"
+                android:layout_below="@+id/editText4"
+                android:ems="10"
+                android:hint="Gender"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText5"
+                android:layout_alignStart="@+id/editText5"
+                android:layout_alignTop="@+id/imageView9"
+                android:layout_marginTop="61dp"
+
+                android:ems="10"
+                android:hint="IFSC"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editText6"
+                android:layout_alignRight="@+id/editText6"
+                android:layout_below="@+id/editText6"
+                android:layout_marginLeft="15dp"
+                android:ems="10"
+                android:hint="Bank Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText7"
+                android:layout_alignStart="@+id/editText7"
+                android:layout_below="@+id/editText7"
+                android:ems="10"
+                android:hint="Account Holder Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp" />
+
+            <EditText
+                android:id="@+id/editText9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/editText8"
+                android:layout_alignStart="@+id/editText8"
+                android:layout_below="@+id/editText8"
+                android:ems="10"
+                android:hint="Account Number"
+                android:inputType="number"
+                android:paddingLeft="15dp" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView38"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText3"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="Full name:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView39"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText4"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="PAN Number:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView42"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText5"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="Date Of Birth:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView43"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/editText5"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="Gender:-"-->
+            <!--android:textColor="#000000"-->
+
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView44"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText7"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="IFSC :-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView45"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText8"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="BANK Name:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView46"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/editText9"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="Account holder Name:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView47"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/editText9"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:text="Account Number:-"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15dp" />-->
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText9"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/color1fb184"
+                android:text="Upload"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:text="Note:- Click on Pancard to Upload PanCard Image."
+                android:textColor="@color/color1fb184" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ed7834"
+    android:background="@drawable/background_color"
     android:padding="16dp"
-    tools:context="milanroxe.inc.snocoins.cartActivity">
+    tools:context="milanroxe.inc.snocoins.cartActivity"
+    tools:shrinkMode="strict">
 
     <TextView
         android:id="@+id/snoBalance"
@@ -25,5 +26,5 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/snoBalance" />
 
-
 </RelativeLayout>
+

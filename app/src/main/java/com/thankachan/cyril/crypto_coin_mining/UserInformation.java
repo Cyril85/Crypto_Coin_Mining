@@ -1,4 +1,4 @@
-package com.thankachan.cyril.crypto_coin_mining;
+package milanroxe.inc.snocoins;
 
 /**
  * Created by milan sharma on 18-05-2017.
@@ -8,16 +8,16 @@ public class UserInformation {
 
     public String name;
     public String address;
-    public String balance;
+
 
     public UserInformation(){
 
     }
 
-    public UserInformation(String name, String address, String balance) {
+    public UserInformation(String name, String address) {
         this.name = name;
         this.address = address;
-        this.balance=balance;
+
     }
 
 

@@ -1,7 +1,13 @@
-package com.thankachan.cyril.crypto_coin_mining;
+package milanroxe.inc.snocoins;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -9,18 +15,22 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.github.javiersantos.appupdater.AppUpdater;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -30,66 +40,124 @@ import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.TimeZone;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import milanroxe.inc.snocoins.bitcoin.BitcoinActivity;
+import milanroxe.inc.snocoins.withdraw.ExchangeAlert;
+
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private InterstitialAd interstitial;
 
-
+    private AlertDialog alertDialog;
     private RewardedVideoAd mAd;
     Button button3;
     Button button2;
-    FloatingActionButton floatingActionButton;
+    FloatingActionButton fabshare;
+
+   WebView wv;
+
+
     ProgressBar pBar;
     int pStatus = 0;
     private Handler handler = new Handler();
     int snoBalance;
     SharedPreferences prefs;
     TextView snoBalTxt;
+    FloatingActionButton floatingActionButton;
+
     int pBarProgress;
     TextView countDownTv;
     private DatabaseReference mDatabaseReference;
     private FirebaseAuth firebaseAuth;
+    private static final int WITHDRAW_LIMIT = 41500;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        AppUpdater appUpdater = new AppUpdater(this);
+        appUpdater.start();
+
+
+
+
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
+
+        //snoBalance = prefs.getInt("snoBalance",  0);
         snoBalance = prefs.getInt("snoBalance", 0);
 
+        //Toast.makeText(getApplicationContext(), String.valueOf(snoBalance), Toast.LENGTH_SHORT).show();
+
         snoBalTxt = (TextView) findViewById(R.id.snoCoin);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
 
         snoBalTxt.setText(getString(R.string.avail_sno_coin) + " " + snoBalance);
 
+
         countDownTv = (TextView) findViewById(R.id.countDown);
+
+
+
+
+        DatabaseReference mref = mDatabaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("balance");
+        mref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    snoBalTxt.setText(getString(R.string.avail_sno_coin) + " " + dataSnapshot.getValue().toString());
+                    //Toast.makeText(getApplicationContext(), dataSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        fabshare=(FloatingActionButton)findViewById(R.id.fabShare) ;
+        fabshare.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main2Activity.this, AlertUnlockFreeRidesActivity.class);
+                startActivity(intent);
+
+            }
+        }));
+
 
         button3 = (Button) findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main2Activity.this, cartActivity.class));
+                //shows alert dialogue
+                showDialog(v);
 
             }
         });
+
+
         button2 = (Button) findViewById(R.id.button2);
         pBar = (ProgressBar) findViewById(R.id.progressBar1);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Main2Activity.this, buyActivity.class));
 
-            }
-        });
 
         pBarProgress = prefs.getInt("pBarProgress", 0);
         if (pBarProgress > 0) {
@@ -97,12 +165,12 @@ public class Main2Activity extends AppCompatActivity
             handleProgressBar();
         }
 
+
         button2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 handleProgressBar();
-
             }
 
         });
@@ -112,18 +180,21 @@ public class Main2Activity extends AppCompatActivity
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.sell:
-                        Intent intent = new Intent(Main2Activity.this, SellActivity.class);
+                    case R.id.bitcoin:
+                        Intent intent = new Intent(Main2Activity.this, BitcoinActivity.class);
                         startActivity(intent);
-                        break;
+                        return true;
+
                     case R.id.claim:
                         intent = new Intent(Main2Activity.this, Main2Activity.class);
-                        startActivity(intent);
-                        break;
+                        onPause();
+
+
+                        return true;
                     case R.id.cart:
-                        intent = new Intent(Main2Activity.this, buyActivity.class);
+                        intent = new Intent(Main2Activity.this, cartActivity.class);
                         startActivity(intent);
-                        break;
+                        return true;
 
                 }
                 return false;
@@ -131,6 +202,7 @@ public class Main2Activity extends AppCompatActivity
         });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
 
         setSupportActionBar(toolbar);
 
@@ -143,7 +215,35 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         pBar = (ProgressBar) findViewById(R.id.progressBar1);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //FAB fab = new FAB();
+                // fab.show(getFragmentManager(), "Level 2 Timer");
+
+                SweetAlertDialog pDialog = new SweetAlertDialog(Main2Activity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+                pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                pDialog.setTitleText("LEVEL 2 TIMER");
+                pDialog.setCustomImage(R.drawable.millis);
+                pDialog.setContentText("Timer will Started When You Earn At Least 1 Bitcoin");
+                pDialog.setCancelable(false);
+                pDialog.show();
+
+            }
+        });
+
+
+        Toolbar t = (Toolbar) findViewById(R.id.sno_bal_toolbar);
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExchangeAlert exchangeAlert = new ExchangeAlert();
+                exchangeAlert.show(getFragmentManager(), "Exchange");
+
+            }
+        });
     }
 
     public void handleProgressBar() {
@@ -168,7 +268,7 @@ public class Main2Activity extends AppCompatActivity
                     try {
                         // Sleep for 200 milliseconds.
                         // Just to display the progress slowly
-                        Thread.sleep(2000);
+                        Thread.sleep(9000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -176,6 +276,7 @@ public class Main2Activity extends AppCompatActivity
                 }
             }
         }).start();
+
         AdRequest adRequest = new AdRequest.Builder().build();
 
         // Prepare the Interstitial Ad
@@ -192,11 +293,10 @@ public class Main2Activity extends AppCompatActivity
             }
         });
 
-        // Do what you need to do..
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-                "MM/dd/yyyy hh:mm:ss aa");
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         button2.setText("Wait for Claim");
+
         button2.setBackgroundColor(getResources().getColor(R.color.darkerprimary));
         // Set the button not-clickable..
         button2.setEnabled(false);
@@ -206,7 +306,7 @@ public class Main2Activity extends AppCompatActivity
             @Override
             public void run() {
                 button2.setEnabled(true);
-                snoBalance = snoBalance + 10;
+                snoBalance = (snoBalance + 250);
                 PreferenceManager.getDefaultSharedPreferences(Main2Activity.this).edit().putInt("snoBalance", snoBalance).apply();
                 pStatus = 0;
 
@@ -215,11 +315,42 @@ public class Main2Activity extends AppCompatActivity
                 mDatabaseReference.child(user.getUid()).child("balance").setValue(snoBalance);
                 recreate();
 
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(Main2Activity.this);
+                mBuilder.setSmallIcon(R.drawable.ic_snocoins);
+                mBuilder.setColor(R.color.colorPrimary);
+                mBuilder.setContentTitle("CLAIM YOUR SNO COINS");
+                mBuilder.setContentText("250COINS!");
+
+
+                Intent i = new Intent(Main2Activity.this.getApplicationContext(), Main2Activity.class);
+
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
+
+                stackBuilder.addParentStack(Main2Activity.class);
+
+                stackBuilder.addNextIntent(i);
+
+                PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_CANCEL_CURRENT);
+
+
+                mBuilder.setContentIntent(pendingIntent);
+
+
+                Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                mBuilder.setSound(alarmSound);
+                mBuilder.setVibrate(new long[]{5000, 5000});
+
+
+                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                nm.notify(1, mBuilder.build());
+
             }
+
         };
 
 
-        new Handler().postDelayed(enableButton, 200000);
+        new Handler().postDelayed(enableButton, 900000);
     }
 
     @Override
@@ -237,35 +368,34 @@ public class Main2Activity extends AppCompatActivity
         PreferenceManager.getDefaultSharedPreferences(Main2Activity.this).edit().putInt("pBarProgress", pStatus).apply();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
 
-    }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        } else
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Sno Coins")
+                    .setIcon(R.drawable.mils)
+                    .setMessage("Are you sure you want to exit Sno Coins?")
+                    .setCancelable(false)
+
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Main2Activity.this.finish();
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+
+                    .show();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
-        return true;
-    }
+
+
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -278,20 +408,37 @@ public class Main2Activity extends AppCompatActivity
             Intent intent = new Intent(Main2Activity.this, profileActivity.class);
             startActivity(intent);
 
+
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            // Toast.makeText(getApplicationContext(),"Clicked on history",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Main2Activity.this, tabActivity.class);
+            startActivity(intent);
 
+
+        } else if (id == R.id.bit) {
+            // Toast.makeText(getApplicationContext(),"Clicked on history",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Main2Activity.this, BitcoinActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Intent intent = new Intent(Main2Activity.this, AlertUnlockFreeRidesActivity .class);
+            startActivity(intent);
 
         }
+        else if (id == R.id.aboutus) {
+            Intent intent = new Intent(Main2Activity.this, WebActivity.class);
+            startActivity(intent);
+
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -326,9 +473,105 @@ public class Main2Activity extends AppCompatActivity
             interstitial.show();
         }
     }
+    public void showDialog(View v){
+
+        final CharSequence items[]={"BTC"};
+        alertDialog = new AlertDialog.Builder(Main2Activity.this).create();
+        alertDialog.setTitle("Pick a Currency");
+        alertDialog.setMessage("Pick a currecy that you'd like to with draw the payment to BTC." +
+                "Minimum withdraw is 41500 SNO Coins");
+
+        // Alert dialog button
+
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"CANCEL",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.dismiss();
+                    }
+                }
+        );
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "PICK",
+
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Alert dialog action goes here
+                        // onClick button code here
+                        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        int snoBalance = prefs.getInt("snoBalance", 0);
+                        int mycoin = prefs.getInt("mysnobalance", 0);
+                        if (snoBalance != 0) {
+
+                            if(snoBalance == WITHDRAW_LIMIT)
+                            {
+                                alerts(" Can't Withdraw. Please claim more coins ");
+                            }
+                            if (snoBalance < WITHDRAW_LIMIT) {
+                                ///if user tries to wthdraw higher sno coin
+                                // Toast.makeText(getApplicationContext(), "You can't withdraw a higher amount than you have", Toast.LENGTH_SHORT).show();
+                                alerts("You can't withdraw a higher amount than you have");
+                                return;
+                            }
+                            else if(snoBalance > WITHDRAW_LIMIT && (snoBalance-WITHDRAW_LIMIT)>0) {
+                                mycoin = mycoin - WITHDRAW_LIMIT;
+                                PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putInt("mysnocoins", mycoin).apply();
+                                //All criteria passed do what you want to
+                                snoBalance = snoBalance - WITHDRAW_LIMIT;
+                                PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putInt("snoBalance", snoBalance).apply();
+                                snoBalance = prefs.getInt("snoBalance", 0);
+                                // snoBalTxt.setText(getString(R.string.avail_sno_coin) + " " + snoBalance);
+
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                mDatabaseReference.child(user.getUid()).child("balance").setValue(snoBalance);
+
+
+
+                                String date = DateFormat.getDateTimeInstance().format(new Date());
+                                HashMap<String, String> hash = new HashMap();
+                                hash.put("balance", String.valueOf(snoBalance - WITHDRAW_LIMIT));
+                                hash.put("Time", date);
+                                hash.put("url", "payment pending");
+                                mDatabaseReference.child(user.getUid()).child("transaction").push().setValue(hash);
+                                // mstorageref.child("transaction").setvalue(hash);
+                                alerts("You payment is done.. Waiting for confirmation");
+
+                            }
+                            else
+                                alerts("You don't have any SNO COIN to withdraw. Balance = "+String.valueOf(snoBalance-WITHDRAW_LIMIT));
+
+                        } else {
+                            alerts("You don't have any SNO COIN to withdraw");
+                        }
+
+                    }
+                });
+
+        alertDialog.show();
+    }
+
+    public  void alerts(String str)
+    {
+        alertDialog=new AlertDialog.Builder(Main2Activity.this).create();
+
+        alertDialog.setMessage(str);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
+    }
+
+
 
 
 }
+
 
 
 

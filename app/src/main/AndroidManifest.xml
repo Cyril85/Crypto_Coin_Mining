@@ -15,6 +15,130 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ViewBankDetailsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BANKANDPANActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".progressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".cartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreatePin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".password_reset_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PHONEActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver
+            android:name=".DailyNotification"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.easynotification.DAILY_NOTIFICATION" />
+                <action android:name="android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_snocoins" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_aiGAAugZtpP8E4" />
+
+        <activity android:name=".SellActivity" />
+        <activity android:name=".PAYActivity" />
+        <activity android:name=".WithdrawActivity" />
+        <activity
+            android:name=".tabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.BitcoinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.buyandsellActivity"
+            android:label="@string/title_activity_buyandsell"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".logoutActivity" />
+        <activity
+            android:name=".bitcoin.walletActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.deposit1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.withdraw2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".myaddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.bankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.BitCoinHistory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bitcoin.BitcoinSendAndReceiveActivity"
+            android:label="@string/title_activity_bitcoin_send_and_receive"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".bitcoin.QRScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".profile2Activity"
+            android:label="@string/title_activity_profile2"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".WebActivity" />
+        <activity
+            android:name=".AlertUnlockFreeRidesActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FingerprintLoginActivity"></activity>
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.thankachan.cyril.crypto_coin_mining;
+package milanroxe.inc.snocoins;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,8 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SellActivity extends AppCompatActivity {
     int snoBalance;
+
+
     SharedPreferences prefs;
     TextView snoBalTxt, firebaseRate;
+    int mycoin;
+    EditText mysnocoins;
     EditText amount;
     DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference mDatabaseReference;
@@ -34,8 +38,10 @@ public class SellActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         snoBalance = prefs.getInt("snoBalance", 0);
+        mycoin=prefs.getInt("mysnobalance",0);
+        mysnocoins=(EditText)findViewById(R.id.mycoin) ;
+        mysnocoins.setText(getString(R.string.mycoin));
         snoBalTxt = (TextView) findViewById(R.id.snoBalance);
-
         snoBalTxt.setText(getString(R.string.avail_sno_coin) + " " + snoBalance);
 
         amount = (EditText) findViewById(R.id.amount);
@@ -61,21 +67,23 @@ public class SellActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter amount to sell", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (snoBalance != 0) {
+        if(snoBalance != 0) {
             int toSell = Integer.parseInt(amtStr);
             if (toSell > snoBalance) {
                 ///if user tries to wthdraw higher sno coin
                 Toast.makeText(this, "You can't withdraw a higher amount than you have", Toast.LENGTH_SHORT).show();
                 return;
             }
+            mycoin=mycoin -toSell;
+            PreferenceManager.getDefaultSharedPreferences(SellActivity.this).edit().putInt("mysnocoins",mycoin).apply();
             //All criteria passed do what you want to
             snoBalance = snoBalance - toSell;
             PreferenceManager.getDefaultSharedPreferences(SellActivity.this).edit().putInt("snoBalance", snoBalance).apply();
             snoBalance = prefs.getInt("snoBalance", 0);
             snoBalTxt.setText(getString(R.string.avail_sno_coin) + " " + snoBalance);
-
             FirebaseUser user = firebaseAuth.getCurrentUser();
             mDatabaseReference.child(user.getUid()).child("balance").setValue(snoBalance);
+            mDatabaseReference.child(user.getUid()).child("sold").setValue(mycoin);
         } else {
             Toast.makeText(this, "You don't have any SNO COIN to sell", Toast.LENGTH_SHORT).show();
         }

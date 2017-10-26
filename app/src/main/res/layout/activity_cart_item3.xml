@@ -1,50 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ed7834"
-    android:padding="16dp"
-    tools:context="milanroxe.inc.snocoins.cartActivity">
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <RelativeLayout tools:context="milanroxe.inc.snocoins.cartActivity" tools:shrinkMode="strict" android:padding="16dp" android:background="@drawable/background_color" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/snoBalance"
-        android:layout_centerHorizontal="true"
-        android:padding="13dp"
-        app:cardCornerRadius="7dp"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="10dp">
+    <android.support.v7.widget.CardView android:padding="13dp" android:layout_height="match_parent" android:layout_width="match_parent" app:cardMaxElevation="10dp" app:cardElevation="10dp" app:cardCornerRadius="7dp" android:layout_centerHorizontal="true" android:layout_below="@id/snoBalance" android:id="@+id/card">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="8"
-                android:gravity="center"
-                android:text="@string/sno_gold_coins"
-                android:textSize="18sp" />
+    <LinearLayout android:padding="16dp" android:layout_height="match_parent" android:layout_width="match_parent" android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ed7834"
-                android:onClick="snoGold"
-                android:text="@string/buy"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:textSize="18sp" android:text="@string/sno_1year" android:gravity="center" android:layout_weight="8" android:layout_margin="10dp"/>
 
-    </android.support.v7.widget.CardView>
+    <Button android:background="#ed7834" android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/buy" android:text="@string/buy" android:textColor="@android:color/white" android:onClick="sno1Year"/>
+
+</LinearLayout>
+
+</android.support.v7.widget.CardView>
 
 </RelativeLayout>

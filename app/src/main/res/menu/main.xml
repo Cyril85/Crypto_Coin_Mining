@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/sell"
-        android:icon="@drawable/ic_action_sell"
-        android:title="Sell Coin" />
-    <item
         android:id="@+id/claim"
         android:icon="@drawable/ic_action_center"
         android:title="Claim" />
     <item
+        android:id="@+id/bitcoin"
+        android:icon="@drawable/internet"
+        android:title="bitcoin" />
+    <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_action_cartb"
         android:title="Coin Cart" />
+
+
 
 </menu>

@@ -1,4 +1,4 @@
-package com.thankachan.cyril.crypto_coin_mining;
+package milanroxe.inc.snocoins;
 
 import android.app.Activity;
 

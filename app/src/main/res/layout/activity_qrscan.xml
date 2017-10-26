@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:shrinkMode="strict"
+    tools:context="milanroxe.inc.snocoins.bitcoin.QRScanActivity">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_primary"
+        android:id="@+id/toolbar3">
+    </Toolbar>
+
+    <!--<android.opengl.GLSurfaceView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/cameraView"/>-->
+
+
+    <SurfaceView
+        android:id="@+id/cameraView"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_below="@+id/toolbar3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/AVLoadingIndicatorView"
+        android:visibility="visible"
+        app:indicatorName="BallGridPulseIndicator"
+        app:indicatorColor="#26ae90"
+        />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#26ae90"
+        android:text="Scan Sno Coin Address"
+        android:layout_above="@+id/avi"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -239,3 +239,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 }
+

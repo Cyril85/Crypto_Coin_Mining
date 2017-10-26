@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="milanroxe.inc.snocoins.AlertUnlockFreeRidesActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="34dp"
+        android:background="@color/color1fb184"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FCF9FF" />
+
+        <!--  <de.hdodenhof.circleimageview.CircleImageView
+              android:id="@+id/profile_image"
+              android:layout_width="120dp"
+              android:layout_height="120dp"
+              android:layout_gravity="center|top"
+              android:layout_marginTop="30dp"
+              android:src="@drawable/ic_hugh"
+              app:civ_border_color="#D6564B"
+              app:civ_border_width="5dp" />-->
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center|top"
+            android:visibility="visible"
+            app:indicatorColor="#feffff"
+            app:indicatorName="BallScaleMultipleIndicator" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center|top"
+            app:srcCompat="@drawable/millis" />
+
+
+        <TextView
+            android:id="@+id/textViewUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FCF9FF"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:padding="12dp"
+            android:background="@color/inbox_fab_pressed"
+            android:text="Logout"
+            android:textColor="@color/QRCodeWhiteColor"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+</RelativeLayout>

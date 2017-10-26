@@ -1,13 +1,13 @@
-package com.thankachan.cyril.crypto_coin_mining;
+package milanroxe.inc.snocoins;
 
 /**
  * Created by Holla Inc on 6/8/2017.
  */
 public enum ModelObject {
 
-    SNOCOIN(R.string.sno_coin, R.layout.activity_cart_item1),
-    SNOSILVER(R.string.sno_silver_coins, R.layout.activity_cart_item2),
-    SNOGOLD(R.string.sno_gold_coins, R.layout.activity_cart_item3);
+    SNOMONTH(R.string.sno_month, R.layout.activity_cart_item1),
+    SNO6MONTH(R.string.sno_6month, R.layout.activity_cart_item2),
+    SNO1YEAR(R.string.sno_1year, R.layout.activity_cart_item3);
 
     private int mTitleResId;
     private int mLayoutResId;

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/white"
+
+    tools:context="milanroxe.inc.snocoins.bitcoin.BitcoinActivity"
+    tools:shrinkMode="strict">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color1fb184">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:text="SNO COINS AND BITCOIN EXCHANGE"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+
+    </Toolbar>
+
+
+    <FrameLayout
+        android:id="@+id/flBalance"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bitcoinbalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:layout_marginRight="150dp"
+
+                android:textColor="@color/color1fb184"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <TextView
+
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="100dp"
+            android:text="Bits"
+            android:textColor="@color/color1fb184"
+            android:textSize="30sp"
+            android:textStyle="normal" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/buy_sell_layout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/flBalance"
+        android:background="@color/white">
+
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:text="Buy:- "
+            android:textColor="#1391c7"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/bitcoin_buy_rate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView13"
+            android:layout_marginStart="2dp"
+            android:layout_toEndOf="@+id/textView13"
+            android:text="0"
+            android:textColor="#259fd7" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bitcoin_buy_rate_textview"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/bitcoinbalance"
+            android:text=" Sell:- "
+            android:textColor="#cc1515"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/bitcoin_sell_rate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView16"
+
+            android:layout_marginStart="2dp"
+            android:layout_toEndOf="@+id/textView16"
+            android:text="0"
+            android:textColor="#c62525" />
+
+
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/buy_sell_layout"
+        android:layout_marginTop="15dp" />
+
+
+
+    <com.flask.floatingactionmenu.FloatingActionMenu
+        android:id="@+id/fam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        app:fab_labelStyle="@style/fab_labels_style">
+
+        <com.flask.floatingactionmenu.FloatingActionToggleButton
+            android:id="@+id/faba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:fab_labelText="faba"
+            app:fab_normal_icon="@drawable/ic_add_white_18dp"
+            app:fab_toggle_icon="@drawable/verification"
+            app:fab_type="mini" />
+
+        <com.flask.floatingactionmenu.FloatingActionButton
+            android:id="@+id/fabb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:fab_colorNormal="@color/remainder"
+            app:fab_colorPressed="@color/remainder_press"
+            app:fab_labelText="faba"
+            app:fab_normal_icon="@drawable/buyandsell"
+            app:fab_type="mini" />
+
+        <com.flask.floatingactionmenu.FloatingActionButton
+            android:id="@+id/fabbb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:fab_colorNormal="@color/remainder"
+            app:fab_colorPressed="@color/remainder_press"
+            app:fab_labelText="faba"
+            app:fab_normal_icon="@drawable/ic_menu_send"
+            app:fab_type="mini" />
+
+        <com.flask.floatingactionmenu.FloatingActionButton
+            android:id="@+id/fabbbb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:fab_colorNormal="@color/remainder"
+            app:fab_colorPressed="@color/remainder_press"
+            app:fab_labelText="faba"
+            app:fab_normal_icon="@drawable/wallet1"
+            app:fab_type="mini" />
+
+        <com.flask.floatingactionmenu.FloatingActionButton
+            android:id="@+id/fabc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:fab_colorNormal="@color/ticket"
+            app:fab_colorPressed="@color/ticket_press"
+            app:fab_labelText="fabc"
+            app:fab_normal_icon="@drawable/history"
+            app:fab_type="mini" />
+
+        <com.flask.floatingactionmenu.FloatingActionToggleButton
+            android:id="@+id/fab_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:fab_colorNormal="@color/color1fb184"
+            app:fab_labelText="toggle button"
+            app:fab_normal_icon="@drawable/ic_add_white_24dp"
+            app:fab_toggle_icon="@drawable/main" />
+    </com.flask.floatingactionmenu.FloatingActionMenu>
+
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="87dp"
+        android:layout_height="85dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:visibility="visible"
+        app:indicatorColor="@color/color1fb184"
+        app:indicatorName="BallScaleIndicator" />
+
+
+</RelativeLayout>

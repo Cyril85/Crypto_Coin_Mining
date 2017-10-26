@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/simplewallet"
+        android:icon="@drawable/simplewallet"
+        android:title="Wallet" />
+    <item
+        android:id="@+id/buyandsell"
+        android:icon="@drawable/buyandsell"
+        android:title="buy and sell" />
+    <item
+        android:id="@+id/bitcoinsend"
+        android:icon="@drawable/bitcoinsendicon"
+        android:title="send/receive bitcoins" />
+    <item
+        android:id="@+id/bitcoinwallet"
+        android:icon="@drawable/bitcoinwallet"
+        android:title="bitcoin wallet" />
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/history"
+        android:title="History" />
+
+</menu>

@@ -1,103 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:shrinkMode="strict"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_splash"
     tools:context="milanroxe.inc.snocoins.LoginActivity">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/millis"
+        android:paddingRight="10px"
+        android:paddingBottom="10px"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
+
+
 
     <LinearLayout
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:background="@color/Transparent80"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:id="@+id/linearLayout">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="User Login"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape3"
+            android:textColorHint="#ffffff"
             android:layout_margin="15dp"
-            android:hint="Enter email"
+            android:hint="   Username"
+
+            android:drawableLeft="@drawable/personprofile"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="#ffffff"
             android:layout_margin="15dp"
-            android:hint="Enter password"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape3"
+            android:hint=" Password"
+            android:drawableLeft="@drawable/keyp"
             android:inputType="textPassword" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:background="@color/Transparent"
+
+            android:textColor="#ffffff"
+
+            android:layout_height="wrap_content"
+            android:text="Remember password"
+            android:layout_alignBottom="@+id/forgot"
+            android:layout_alignLeft="@+id/editTextEmail"
+            android:layout_alignStart="@+id/editTextEmail" />
 
         <Button
             android:id="@+id/buttonSignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/btn_login_register"
             android:text="Login"
-            android:textColor="#ffffff" />
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/googleSignInButton"
-            android:layout_width="match_parent"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content">
+            android:textColor="#ffffff"
+            android:background="@drawable/shape3"/>
 
-        </com.google.android.gms.common.SignInButton>
+        <TextView
+            android:text="Forgot password?"
+            android:id="@+id/forgot"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textViewSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:layout_margin="15dp"
-            android:text="Not a memeber? Signup"
+            android:text="Not have an account? Signup Here"
             android:textAlignment="center" />
-
-       <!-- <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@color/btn_signup"
-                android:drawableLeft="@drawable/ic_email_24dp"
-                android:drawablePadding="7dp"
-                android:drawableStart="@drawable/ic_email_24dp"
-                android:onClick="withEmail"
-                android:padding="10dp"
-                android:text="@string/with_email"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/or"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@color/btn_signup"
-                android:drawableLeft="@drawable/ic_phone_24dp"
-                android:drawablePadding="7dp"
-                android:drawableStart="@drawable/ic_phone_24dp"
-                android:onClick="withPhone"
-                android:padding="10dp"
-                android:text="With Phone"
-                android:textColor="#ffffff" />
-        </LinearLayout>-->
-
     </LinearLayout>
+
 
 </RelativeLayout>

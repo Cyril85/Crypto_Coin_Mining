@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    tools:context="milanroxe.inc.snocoins.bitcoin.BitcoinSendAndReceiveActivity"
+    tools:shrinkMode="strict">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/scanqrcode_button"
+                android:layout_width="250sp"
+                android:layout_height="70sp"
+                android:layout_below="@+id/textView45"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="23dp"
+                android:background="@color/color1fb184"
+                android:text="Scan QR Code"
+                android:textColor="#eee"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView48"
+                android:layout_alignStart="@+id/textView48"
+                android:layout_below="@+id/textView47"
+                android:layout_marginTop="37dp"
+                android:text="Send With QR Code "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scanqrcode_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:text="If you want to send  BitCoin to non sno coins  address. \n Enter Bitcoin Address"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/bitcoin_balance"
+                android:layout_alignTop="@+id/bitcoin_balance"
+                android:layout_toStartOf="@+id/bitcoin_balance"
+                android:gravity="left"
+                android:text="Bits:-"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bitcoin_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sendButton"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/sendButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="76dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/send_amount"
+                android:layout_width="250sp"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/bitcoin_address"
+                android:layout_alignStart="@+id/bitcoin_address"
+                android:layout_below="@+id/bitcoin_address"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_buy_edit"
+                android:gravity="center_vertical"
+                android:hint="Enter Bit Coins"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_amount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                android:background="@color/color1fb184"
+                android:text="Send"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/bitcoin_address"
+                android:layout_width="250sp"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/textView48"
+                android:layout_alignStart="@+id/textView48"
+                android:layout_below="@+id/textView48"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/bg_buy_edit"
+                android:hint="Enter Bit Coin Address"
+                android:paddingLeft="10dp"
+                android:textColor="#eee" />
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

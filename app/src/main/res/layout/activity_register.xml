@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:src="@mipmap/ic_password_lock"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTypePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type Password"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/color000000"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPassword1"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPassword2"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPassword3"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPassword4"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRetypePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retype Password"
+                android:textColor="@color/QRCodeBlackColor"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPasswordNew1"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPasswordNew2"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPasswordNew3"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/etPasswordNew4"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_bottom_line"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color000000"
+                    android:textSize="40sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btDone"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@color/color1fb184"
+        android:text="Done"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textAllCaps="true"
+      />
+
+</RelativeLayout>
